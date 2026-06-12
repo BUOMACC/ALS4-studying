@@ -1,6 +1,9 @@
 # ALS4-studying
 This project is based on my personal analysis and may contain inaccuracies.
 
+언리얼 엔진의 `ALS4` 프로젝트에 대한 궁금한 내용들을 다룹니다.  
+
+문서 내용은 향후 더 추가될 수 있습니다.  
 
 <a name="table-contents"></a>
 ## 목차
