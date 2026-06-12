@@ -21,7 +21,7 @@ ALS에서는 시선을 정면을 유지한채 이동하는 `8-Way-Movement` 모�
 ### Animation List
 <hr>
 
-|<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Image_F.png" width="100%" height="100%"/>|<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Image_B.png" width="100%" height="100%"/>|<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Image_LF.png" width="100%" height="100%"/>|<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Image_LB.png" width="100%" height="100%"/>|<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Image_RF.png" width="100%" height="100%"/>|<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Image_RB.png" width="100%" height="100%"/>|
+|<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Section_01/Image_F.png" width="100%" height="100%"/>|<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Section_01/Image_B.png" width="100%" height="100%"/>|<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Section_01/Image_LF.png" width="100%" height="100%"/>|<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Section_01/Image_LB.png" width="100%" height="100%"/>|<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Section_01/Image_RF.png" width="100%" height="100%"/>|<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Section_01/Image_RB.png" width="100%" height="100%"/>|
 |  --------------------------  |--------------------------|--------------------------|--------------------------|--------------------------|--------------------------|
 |(F) 앞으로 달리는 동작    |(B) 뒤로 달리는 동작    |(LF) 앞으로 달리는 도중 왼쪽으로 달리는 동작    |(LB) 뒤로 달리는 도중 왼쪽으로 달리는 동작    |(RF) 앞으로 달리는 도중 오른쪽으로 달리는 동작    |(RB) 뒤로 달리는 도중 오른쪽으로 달리는 동작|
 
@@ -38,7 +38,7 @@ ALS4 에서는 `Blending`과 캐릭터를 회전시켜 대각선 이동을 구�
 하지만 지속적으로 뒤 우측 대각선(RB) 애니메이션을 재생하지 않고 캐릭터를 회전시키고 뒤(B)로 이동하는 애니메이션을 재생하여 자연스럽게 전환되도록 구현되었다.  
 
 
-<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Image_Rotating.png" width="50%" height="50%"/>   
+<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Section_01/Image_Rotating.png" width="50%" height="50%"/>   
 
 > 처음엔 대각선 이동을 하지만, 이후에는 캐릭터가 회전되고 뒤(B)로 이동하는 애니메이션으로 전환된다.
 
@@ -46,15 +46,15 @@ ALS4 에서는 `Blending`과 캐릭터를 회전시켜 대각선 이동을 구�
 ### 어떻게 회전하는가?
 <hr>
 
-<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Image_Rotating_2.png" width="75%" height="75%"/>  
+<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Section_01/Image_Rotating_2.png" width="75%" height="75%"/>  
 
 `Yaw` 값을 기반으로 캐릭터를 직접 회전시키는 방식으로, 뒤 우측 대각선(RB)를 기준으로 계산하자면 커브값의 입력(Time)으로 135.0이 들어오며 반환(Y)로는 -45.0 값이 `BYaw` 변수에 저장된다.
 
-<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Image_Rotating_3.png" width="30%" height="30%"/>  
+<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Section_01/Image_Rotating_3.png" width="30%" height="30%"/>  
 
 계산된 `BYaw` 값은 현재 애니메이션(Move B)의 `YawOffset` 커브값으로 저장한다.
 
-<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Image_Rotating_4.png" width="60%" height="60%"/>  
+<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Section_01/Image_Rotating_4.png" width="60%" height="60%"/>  
 
 마지막으로 저장된 값을 `UpdateGroundedRotation()` 내부에서 사용하여 캐릭터를 이동 방향의 반대 방향을 쳐다보도록 회전이 처리된다.  
 
@@ -64,7 +64,7 @@ ALS4 에서는 `Blending`과 캐릭터를 회전시켜 대각선 이동을 구�
 
 각각 방향별로 구현된 `BlendSpace`를 서로 블렌딩하는 과정에서 `VelocityBlend`라는 가중치 값을 사용하여 블렌딩한다.
 
-<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Image_BlendSpaces.png" width="75%" height="75%"/>  
+<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Section_01/Image_BlendSpaces.png" width="75%" height="75%"/>  
 
 위 이미지를 보듯이 `VelocityBlend` 값을 이용해 앞 / 뒤 / 좌 / 우 애니메이션들을 서로 혼합하여 적합한 애니메이션이 출력된다.
 
@@ -88,13 +88,13 @@ ALS4에서는 이동속도와 애니메이션 속도의 불일치로 발이 미�
 ### StrideBlend
 <hr>
 
-<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Image_Stride.png" width="70%" height="70%"/>  
+<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Section_02/Image_Stride.png" width="70%" height="70%"/>  
 
 `StrideBlend`는 구성된 `BlendSpace`에서 발의 보폭을 얼마나 사용할지 가중치를 의미한다.  
 0인 경우 가만히 있는 `Idle` 포즈를 사용하고, 1인 경우 움직이는 애니메이션 `Walk 또는 Run`을 사용한다.  
 
 
-<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Image_StrideCurve.png" width="50%" height="50%"/>  
+<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Section_02/Image_StrideCurve.png" width="50%" height="50%"/>  
 
 `StrideBlend` 값은 별도의 커브를 이용해서 속도(Time = `Speed`)에 따라 `0.2 ~ 1.0`) 범위 사이의 값을 반환한다.  
 예를 들어, 달리기의 경우 초당 `350` 만큼의 속도를 가지고 이동할 것으로 만들어졌기에, 최대인 `350`에서는 `Stride` 값은 `1.0`이다.
@@ -116,12 +116,12 @@ ALS4에서는 이동속도와 애니메이션 속도의 불일치로 발이 미�
 기존 `StrideBlend`와 `PlayRate`를 이용해 발 미끄러짐을 일부 해결하더라도 대각선 이동에서는 한 가지 문제점이 있다.  
 대각선에서 이동을 처리하기 위해 `Normalized`된 `Vector`값을 사용하는데, 이 경우 오른쪽 대각선으로 이동한다고 가정하면 `(0.707, 0.707)` 같은 입력이 나온다.  
 
-<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Image_Diagonal.png" width="80%" height="80%"/>  
+<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Section_02/Image_Diagonal.png" width="80%" height="80%"/>  
 
 > 정면 이동시 (375, 0)의 속도를 가진다.
 
 
-<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Image_Diagonal_2.png" width="80%" height="80%"/>  
+<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Section_02/Image_Diagonal_2.png" width="80%" height="80%"/>  
 
 > 대각선 이동시 (265.165, 265.165)의 속도를 가지며 크기는 약 375로 정면 이동과 동일한 속도다.
 
@@ -132,7 +132,7 @@ ALS4에서는 이동속도와 애니메이션 속도의 불일치로 발이 미�
 - `PlayRate`를 이용하기에는 대각선으로 이동하는 애니메이션만 속도가 빨라보일 것이다.  
 
 
-<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Image_Diagonal_3.png" width="100%" height="100%"/>  
+<img src="https://github.com/BUOMACC/ALS4-studying/blob/main/Images/Section_02/Image_Diagonal_3.png" width="100%" height="100%"/>  
 
 ALS 에서는 이 문제를 해결하기 위해 달리는 상태에 `Foot IK Bone`의 스케일 대각선 이동 배수(약 1.414배)만큼 스케일하여 기존 이동과 보폭이 일치하도록 처리했다.
 
